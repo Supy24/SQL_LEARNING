@@ -1,0 +1,124 @@
+--------------- Select ----------------------------
+
+Select 10 +30
+
+SELECT (10+30+40)/40
+
+-------------
+
+SELECT 10 , 20 , 30 , 40
+
+Select 'ram' , 'noida'
+
+-----------Aliase name
+
+Select 'ram' as name , 'noida' as city
+
+Select 'ram'  name , 'noida'  city
+
+-----------Fetch records from table
+
+SELECT * FROM SYS.tables
+
+-----Rules-1 Fetch all(*) records 
+
+SELECT * FROM Superstore
+
+-----2- FETCH SELECT COLUMNS REECORDS
+
+SELECT  STATE, CITY , SALES FROM Superstore
+
+SELECT   CITY ,STATE, SALES FROM Superstore
+
+-------3- Multiple Words column name should be within [] 
+
+SELECT   [Order Date] ,[CITY] ,[STATE], SALES FROM Superstore
+
+
+-------4- Virtual column name - column as  name
+
+SELECT   [Order Date] as today ,[CITY] as area ,[STATE]  as region , SALES FROM Superstore
+
+SELECT   [Order Date] today ,[CITY] as area ,[STATE]  as region , SALES FROM Superstore
+
+
+
+--------------------------WHERE
+
+--------- Fetch records where STATE=Florida
+
+
+SELECT CITY , STATE  , sales FROM Superstore where state='Florida'
+
+---------------- Fetch records where Sales<50
+
+SELECT CITY , SALES 
+FROM Salesorder 
+WHERE SALES  <  50
+
+sp_help Salesorder
+
+
+--------- Fetch records where STATE=Florida and Sales>300
+
+SELECT CITY , STATE  , sales FROM Salesorder where state='Florida' and Sales>300
+
+
+
+---------------- GROUP BY
+---------------Summary 
+
+SELECT * FROM Salesorder
+
+SELECT CATEGORY, SUM(SALES) as total FROM Salesorder
+GROUP BY  CATEGORY
+
+
+SELECT Segment , CATEGORY, SUM(SALES) as stotal , sum(Quantity) as qtotal FROM Salesorder
+GROUP BY  CATEGORY,Segment
+order by Segment 
+
+------------------- having 
+------------------------
+
+SELECT Segment , CATEGORY, SUM(SALES) as stotal , sum(Quantity) as qtotal FROM Salesorder
+GROUP BY  CATEGORY,Segment
+having  sum(Quantity) >4000
+
+
+-------------------- Order by - Sorting 
+
+SELECT Segment , CATEGORY, SUM(SALES) as stotal , sum(Quantity) as qtotal FROM Salesorder
+GROUP BY  CATEGORY,Segment
+having  sum(Quantity) >3000
+order by Segment desc
+
+
+SELECT Segment , CATEGORY, SUM(SALES) as stotal , sum(Quantity) as qtotal FROM Salesorder
+GROUP BY  CATEGORY,Segment
+having  sum(Quantity) >3000
+order by Segment desc , qtotal desc
+
+
+
+SELECT Segment , CATEGORY, SUM(SALES) as stotal , sum(Quantity) as qtotal FROM Salesorder
+GROUP BY  CATEGORY,Segment
+having  sum(Quantity) >3000
+order by qtotal desc
+
+
+---
+
+
+SELECT Segment , CATEGORY, SUM(SALES) as stotal , sum(Quantity) as qtotal 
+FROM Salesorder
+where sales>10
+GROUP BY  CATEGORY,Segment
+having  sum(Quantity) >3000
+order by qtotal desc
+
+
+SELECT SALES 
+FROM Salesorder
+WHERE SALES>400
+ORDER BY Sales
