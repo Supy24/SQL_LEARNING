@@ -294,3 +294,67 @@ Begin Transaction - change Auto-commit   into  User Commit
 Roll Back             - Cancel Last transation 
 Save Point           - Roll back conditionaly
 Commit               - Paramenet Last Transaction
+
+
+TCL- Transaction Control Language
+-------------------------------------- Scope - Transaction Control
+                                                                - DML( Insert , DELETE , UPDATE)
+
+
+----- QUERY - System Commit- Paranament 
+                   - User Control - Begin Transaction 
+
+Rollback - Cancel last Transaction
+Save Point - Cancel Conditionaly 
+Commit ----
+
+
+DQL- Data Query Language
+---------------------------------
+--------------------------------- Scope or Level - Query or Fetch Records
+--------------------------------- Select
+--------------------------------- Data Analysis - 90%
+
+
+Select         - Execute the Query
+From          - Fetch records from Table    
+Where        - Fetch records from Table with Condition 
+Group By   - Group on the base of nay column or Summary
+Having       - Conditon on the Summary Records
+Order by    - Sorting ( Asc or Desc)
+
+
+---------------From          - Fetch records from Table    
+
+Rules-1 Fetch all(*) records 
+
+     SELECT *(ALL) FROM TABLE_NAME
+
+-----2- SELECT COLUMN REECORDS
+ 
+
+SELECT COL1,COL2,COL3 FROM TABLE_NAME
+
+---- Multiple Words column name 
+
+
+SELECT [COL1 name],[COL2 name],COL3 FROM TABLE_NAME
+
+
+----column name  as name
+
+
+SELECT [COL1 name] as name ,[COL2 name],COL3  as name FROM TABLE_NAME
+
+
+-------------- SELECT , FROM , WHERE (FILTER)
+
+---- WHERE - Fetch the conditionally
+
+SELECT * FROM TABLE WHERE COLUMN OPERATOR VALUE
+
+
+-------------- Group By - Summary
+                                   - Base column
+                                   - Values
+                                   - Agg Function - Sum , min , max,
