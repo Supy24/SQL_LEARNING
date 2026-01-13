@@ -1,0 +1,172 @@
+------------ select database
+
+USE JAN6
+
+----------DDL-Table Create -------------
+
+CREATE TABLE STUDENT_DETAILS
+(SID INT,
+ SNMAE VARCHAR(30),
+ SCITY VARCHAR(30),
+ SCOLLEGE VARCHAR(20),
+ SCOURSE VARCHAR(30),
+ SMOBILE CHAR(10),
+ SFEE MONEY,
+ SADMI DATE
+ )
+
+ ----------- DML----------------------
+
+ ------- inset 
+ ----Rules-1
+
+ INSERT INTO STUDENT_DETAILS VALUES(1,'HARI','NOIDA','DU','BBA','1234567890',3000,'10-10-2025')
+
+ ----Rules-2
+ INSERT INTO STUDENT_DETAILS(SID , SNMAE , SCOLLEGE) VALUES(2,'FARID','IP')
+
+ ----3- Multiple reocrds 
+
+
+
+  INSERT INTO STUDENT_DETAILS 
+  VALUES
+  (3,'HARISH','NOIDA','DU','BBA','1234567890',3000,'10-10-2025'),
+  (4,'DINESH','DELHI','DU','BBA','1234567890',3000,'10-10-2025'),
+  (5,'ROAHN','NOIDA','DU','BBA','1234567890',3000,'10-10-2025')
+
+---------- ALTERNAT METHOD
+INSERT INTO STUDENT_DETAILS VALUES(6,'HARI','NOIDA','DU','BBA','1234567890',3000,'10-10-2025')
+INSERT INTO STUDENT_DETAILS VALUES(6,'HARI','NOIDA','DU','BBA','1234567890',3000,'10-10-2025')
+INSERT INTO STUDENT_DETAILS VALUES(7,'HARI','NOIDA','DU','BBA','1234567890',3000,'10-10-2025')
+INSERT INTO STUDENT_DETAILS VALUES(8,'HARI','NOIDA','DU','BBA','1234567890',3000,'10-10-2025')
+
+
+
+-------------RULES -4
+
+ INSERT INTO STUDENT_DETAILS(SNMAE , SCOLLEGE, SID) VALUES('FARID','IP',10)
+
+ INSERT INTO STUDENT_DETAILS(SNMAE , SCOLLEGE, SID) VALUES('FARID','DU',10)
+
+ -------------------- DELETE
+
+ DELETE FROM STUDENT_DETAILS
+ WHERE SID=10
+
+  DELETE FROM STUDENT_DETAILS
+  WHERE SNMAE='FARID' AND SCOLLEGE='DU' AND SID=10
+
+
+    -------------- UPDATE--------------------
+
+ ----------- VALUES MODIFY
+
+ UPDATE STUDENT_DETAILS
+ SET SCITY='KANPUR' , SCOURSE='BCA'
+ WHERE SID=2
+
+
+ UPDATE STUDENT_DETAILS
+ SET SCITY='KANPUR' , SCOURSE='BCA'
+ WHERE SID<4
+
+
+ UPDATE STUDENT_DETAILS
+SET SCITY='KANPUR' , SCOURSE='BCA'  
+ WHERE SID IN (5,7)
+
+SELECT * FROM STUDENT_DETAILS
+
+
+---------------TCL----------------------
+Create Table Bank_details
+(bid int,
+ bname varchar(30),
+ location varchar(40),
+ amount money
+ )
+
+ -----------INSERT 
+
+ Insert into Bank_details values( 1,'sbi','noida', 30000)
+  Insert into Bank_details values( 2,'sbi','noida', 30000)
+  Insert into Bank_details values( 3,'sbi','noida', 30000)
+ 
+ Select * from Bank_details
+
+
+ begin Tran
+ Insert into Bank_details values( 2,'bob','noida', 30000)
+ Insert into Bank_details values( 3,'bob','noida', 30000)
+ Insert into Bank_details values( 4,'bob','noida', 30000)
+ Insert into Bank_details values( 5,'bob','noida', 30000)
+
+
+ SELECT * FROM Bank_details
+ ---- delete -------------------------------------
+
+ Delete from Bank_details
+ where bid=1
+ 
+  SELECT * FROM Bank_details
+  
+ BEGIN TRAN
+ Delete from Bank_details
+ where bid=2
+
+
+ BEGIN TRAN
+ Delete from Bank_details
+ where bid=3
+
+ BEGIN TRAN
+ ROLLBACK
+
+
+ ---- update -------------------------------------
+
+ begin tran
+ update Bank_details
+ set bname='bob'
+ where bid=2
+
+select * from Bank_details
+
+
+ Begin tran
+ Rollback
+
+ ----------------------------Save Point-----------------------------------
+
+ Begin tran
+ insert into Bank_details values(4,'dena','delhi', 45600)
+ save tran p1
+
+
+ Begin tran
+ insert into Bank_details values(5,'bob','delhi', 45600)
+ insert into Bank_details values(6,'bob','delhi', 45600)
+ insert into Bank_details values(7,'bob','delhi', 45600)
+ save tran p2
+
+
+ Begin tran
+ insert into Bank_details values(8,'bob', 'delhi',45600)
+
+
+ SELECT * FROM Bank_details
+
+ BEGIN TRAN
+ ROLLBACK TRAN p1
+
+ 
+ ------------------- COMMIT ------------------------
+ 
+ Begin tran
+ insert into Bank_details values(5,'bob','delhi', 45600)
+ insert into Bank_details values(6,'bob','delhi', 45600)
+ insert into Bank_details values(7,'bob','delhi', 45600)
+
+Begin tran
+COMMIT
