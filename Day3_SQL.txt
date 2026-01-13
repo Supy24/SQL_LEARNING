@@ -1,0 +1,96 @@
+-------------------Parent Table
+Create Table Employee_details
+(id int primary key,
+ Name varchar(30) not null,
+ City Varchar(30) not null
+ )
+
+ --------
+
+ Create Table Project 
+ (Pid Int primary key,
+ eid int foreign key References Employee_details(id),
+ pname varchar(50),
+ ptime int
+ )
+
+
+ ---------------
+
+insert into Employee_details(ID , NAME , CITY) VALUES ( 1 , 'RAM' ,'NOIDA')
+
+insert into Employee_details(ID , NAME , CITY) VALUES ( 2 , 'RAMesh' ,'NOIDA')
+
+
+ SELECT * FROM Employee_details
+ SELECT * FROM PROJECT
+ ---------------
+
+ insert into project(pid,eid,pname, ptime) values(101,1,'data analysis', 6)
+
+
+  insert into project(pid,eid,pname, ptime) values(102,2,'data analytics', 6)
+
+
+
+  ------------------------------ALTER
+
+ ----- ADD Columns
+
+ ALTER TABLE EMPLOYEE_DETAILS
+ ADD COUNTRY VARCHAR(30) 
+
+ ALTER TABLE EMPLOYEE_DETAILS
+ ADD MOBILE CHAR(10) 
+
+ ---------------- CHANGE DATATYPE
+
+ SP_HELP EMPLOYEE_DETAILS
+
+ SELECT * FROM Employee_details
+
+ ALTER TABLE EMPLOYEE_DETAILS
+ ALTER COLUMN MOBILE VARCHAR(10) 
+
+
+ ----------- ADD CONSTRAINTS
+ 
+ ALTER TABLE EMPLOYEE_DETAILS
+ ALTER COLUMN MOBILE CHAR(10) NOT NULL
+
+ ALTER TABLE PROJECT
+ ALTER COLUMN PNAME CHAR(10) NOT NULL
+
+ -----ADD
+
+ALTER TABLE PROJECT
+ADD CONSTRAINT UN_TIME UNIQUE (PTIME)
+
+
+----------- DROP --- REMOVE---------------
+
+----- COLUMN, CONTRAINTS
+
+SELECT * FROM Employee_details
+
+ALTER TABLE EMPLOYEE_DETAILS
+DROP COLUMN MOBILE
+
+ALTER TABLE PROJECT 
+DROP CONSTRAINT UN_TIME
+
+SP_HELP PROJECT
+
+
+
+ -------- Truncate
+ SELECT * FROM Employee_details
+
+ SELECT * FROM PROJECT 
+
+
+ TRUNCATE TABLE  Employee_details
+ 
+ ---------------------------- DROP -------------------
+
+ DROP DATABASE  DATANOV
