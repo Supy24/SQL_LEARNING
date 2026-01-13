@@ -358,3 +358,76 @@ SELECT * FROM TABLE WHERE COLUMN OPERATOR VALUE
                                    - Base column
                                    - Values
                                    - Agg Function - Sum , min , max,
+
+DQL
+-------- Data Query Language
+-------- Query or Fetch
+-------- Select
+
+------------- Fetch the records from table
+-------------- SELECT , FROM , WHERE, GROUP BY , HAVING , ORDER BY 
+Select * from Table_name
+
+Select * from Table_name where Condition
+
+Select * from Table_name group by Column 
+
+Select * from Table_name group by Column  having condition 
+
+
+Select * from Table_name group by Column  having condition  order by colunm
+
+
+-------------------
+
+
+WHERE CLAUSE
+-------------------- 
+------------------- Fetch the records conditionally
+-------------------  Data type
+-------------------  Operators
+
+Operators
+-------------
+1- Comparion Operators
+2- Logical Operators
+3- Null Operators
+4- Range Operators
+5- Pattern Operators
+
+---------------------------------
+
+1- Comparion Operators - > , < , >= , <= , <>  or =! , Between... and 
+   ---text(char, varchar) ---= ,<>  or =!
+   --- number -- > , < , >= , <= , <>  or =! , Between... and 
+   --- date  --- > , < , >= , <= , <>  or =! , Between... and 
+
+
+----------------------------------
+
+2- Logical Operators
+------------------------- Multiple Conditions
+logical and --  all True
+logical or    --  any True
+logical not   -- True for False , false for True
+
+--- List Operatos - in
+
+---- Null Operators - is
+
+---- Pattern Operators or WildCard- like 
+
+----- In Begining 
+
+where column like 'chac%' 
+
+---- End with
+
+where column like '%cha' 
+
+---In middle  (any where) 
+
+where column like '%cha%' 
+
+
+where column like '%__cha___%'
