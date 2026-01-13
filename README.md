@@ -431,3 +431,16 @@ where column like '%cha%'
 
 
 where column like '%__cha___%'
+
+Functions
+--------------
+
+Text Functions
+Math Function (agg functions)
+Date Functions
+Other Functions
+
+--------------------------
+
+Text Functions
+----------------- len , left , right, upper , lower , substring
