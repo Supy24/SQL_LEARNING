@@ -1,0 +1,112 @@
+SELECT * FROM Salesorder
+
+----1- Comparion Operators - > , < , >= , <= , <>  or =! , Between... and 
+
+----WAQ to fetch the country, city , state  where sales>500
+
+SELECT COUNTRY , STATE, CITY , SALES  FROM Salesorder WHERE SALES>500
+
+----WAQ to fetch COUNTRY , STATE, CITY , SALES where sales <= 1000
+
+SELECT COUNTRY , STATE, CITY , SALES  FROM Salesorder WHERE SALES<=500
+
+----WAQ to fetch COUNTRY , STATE, CITY , SALES where quantity = 5
+
+SELECT COUNTRY , STATE, CITY , SALES , Quantity FROM Salesorder WHERE Quantity =5
+
+----WAQ to fetch COUNTRY , STATE, CITY , SALES where  not  quantity = 5
+
+SELECT COUNTRY , STATE, CITY , SALES , Quantity FROM Salesorder WHERE Quantity  <> 5
+
+
+----WAQ to fetch COUNTRY , STATE, CITY , SALES where   quantity   5 to 8
+
+
+SELECT COUNTRY , STATE, CITY , SALES , Quantity FROM Salesorder WHERE Quantity  between 5 and 8
+
+
+----------------------------------------------------------------------------------------
+
+----WAQ to fetch COUNTRY , STATE, CITY , SALES , QUANTITY where city = 'New York City'
+
+SELECT COUNTRY , STATE, CITY , SALES , Quantity FROM Salesorder WHERE CITY = 'New York City'
+
+----WAQ to fetch COUNTRY , STATE, CITY , SALES , QUANTITY where city  OTHER THAN 'New York City'
+
+SELECT COUNTRY , STATE, CITY , SALES , Quantity FROM Salesorder WHERE CITY <> 'New York City'
+
+------------- DATE 
+------- WAQ for salesforce and Fetch the records for city , category , sales , qunatity where date ='2016-11-08'
+
+SELECT [ORDER DATE] , CITY , Category, SALES, Quantity from SALEFORCE WHERE [ORDER DATE] ='2016-11-08'
+
+------- WAQ for salesforce and Fetch the records for city , category , sales , qunatity where date  before '2016-11-08'
+
+SELECT [ORDER DATE] , CITY , Category, SALES, Quantity from SALEFORCE WHERE [ORDER DATE] < '2016-11-08'
+
+--- WAQ for salesforce and Fetch the records for city , category , sales , qunatity where date  after '2016-11-08'
+SELECT [ORDER DATE] , CITY , Category, SALES, Quantity from SALEFORCE WHERE [ORDER DATE] > '2016-11-08'
+
+
+------ WAQ for salesforce and Fetch the records for city , category , sales , qunatity where date between '2016-11-08' and '2016-12-08'
+
+SELECT [ORDER DATE] , CITY , Category, SALES, Quantity from SALEFORCE WHERE [ORDER DATE]  between  '2016-11-08' and  '2016-12-08'
+
+
+-------------------Logical Operators
+
+------- Fetch the records for Category = Technology and Sales>1000
+
+SELECT [ORDER DATE] , CITY , Category, SALES, Quantity from SALEFORCE where Category='Technology' and Sales>1000
+
+------- Fetch the records for City='New York City'  and Sales>1000
+
+SELECT [ORDER DATE] , CITY , Category, SALES, Quantity from SALEFORCE where City='New York City' and Sales>1000
+
+
+------- Fetch the records for City='New York City'  or Sales>3000
+
+SELECT [ORDER DATE] , CITY , Category, SALES, Quantity from SALEFORCE where City='New York City' or Sales>3000
+
+------------- Fetch the records for City='New York City' 
+
+SELECT [ORDER DATE] , CITY , Category, SALES, Quantity from SALEFORCE where not City='New York City'
+
+
+-------------------------------------RANGE OR LIST OPERATORS -IN
+
+
+------- Fetch the records for City='Franklin' , Kenosha, Henderson
+
+SELECT COUNTRY, STATE, CITY,  SALES FROM SALEFORCE WHERE CITY IN ('Franklin' , 'Kenosha', 'Henderson')
+
+
+------- Fetch the records for QTY : 4, 5 ,7,9
+
+SELECT COUNTRY, STATE, CITY,  SALES , QUANTITY FROM SALEFORCE WHERE Quantity IN (4,5,7,9)
+
+
+
+-------------------------------------NULL OPERATORS : IS --------------------------
+
+SELECT * FROM Superstore WHERE Profit IS NULL
+
+SELECT * FROM   Employeedetails WHERE E_CITY  IS NULL
+
+
+----------------------------------- Pattern Operators------------------
+
+---WAQ  to fetch the city name start with 'hou'
+
+SELECT CITY , SALES FROM SALEFORCE WHERE CITY LIKE 'H%'
+
+---WAQ  to fetch the city name end with 'se'
+
+SELECT CITY , SALES FROM SALEFORCE WHERE CITY LIKE '%SE'
+
+------WAQ  to fetch the  where 'es' in of city name
+
+SELECT CITY , SALES FROM SALEFORCE WHERE CITY LIKE '%SE%'
+
+
+SELECT CITY , SALES FROM SALEFORCE WHERE CITY LIKE '%__SE__%'
