@@ -215,3 +215,82 @@ CREATE TABLE STUDENT_DETAILS
   -----------SELECT
 
   SELECT * FROM STUDENT_DETAILS
+
+
+--- 
+
+DDL - CREATE , ALTER , DROP , TRUNCATE
+
+
+DATABASE
+--- TABLE
+----Constraints
+---- RDBMS
+
+-----ALTER - Modify structure 
+
+----- ADD
+----- ALTER
+----- Drop
+
+----- Add Column 
+----- Change Data type 
+----- Drop - Database , Table , Column , Constraints
+
+
+ALTER TABLE TABLE_NAME
+ADD COLUMN_DETAILS
+
+DDL
+------------------- Level - Structure 
+CREATE 
+ALTER
+DROP
+TRUNCATE
+
+------
+
+DML - Data Manipulation Language
+------------------------------------------
+                   --------------------------- Scope or Level - Data
+                   --------------------------- Transaction
+
+INSERT - INSERT RECORDS INTO TABLE
+DELETE - DELETE RECORDS FROM TABLE
+UPDATE - MODIFY RECORDS
+------------------------------------------
+
+INSERT - INSERT RECORDS INTO TABLE
+
+1- Insert records into all columns and order as mention in table no need to mention column name  
+
+2- Insert records in selected columns --- Needed to mention column 
+
+3- Insert Multiple records
+
+4- Insert records as colum order in insert query
+
+
+---DELETE - DELETE RECORDS FROM TABLE
+------------ ALWAYS COME WITH CONDITION 
+
+DELETE FROM  TABLE_NAME
+WHERE CONDITION 
+
+
+-------UPDATE
+
+UPDATE TABLE_NAME
+SET COLUMN = VALUE
+WHERE  CONDITION 
+
+------------------------------------ TCL-- Transaction Control Language
+
+Transaction Command - Auto-commit 
+                - System commit
+                
+
+Begin Transaction - change Auto-commit   into  User Commit
+Roll Back             - Cancel Last transation 
+Save Point           - Roll back conditionaly
+Commit               - Paramenet Last Transaction
