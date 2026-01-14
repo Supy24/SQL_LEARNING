@@ -1,0 +1,106 @@
+Use BATCH
+
+--------- OTHER FUNCTIONS
+
+---------- TOP - FISRT N ROW
+
+-------TOP 
+SELECT TOP 3 SALES FROM Salesorder
+ORDER BY SALES DESC
+
+----BOTTOM
+
+SELECT TOP 3 SALES FROM Salesorder
+ORDER BY SALES ASC
+
+----------- ROUND---------------
+
+SELECT ROUND(SUM(SALES),2) FROM Salesorder
+
+----------DISTINT------------------
+
+SELECT DISTINCT CATEGORY FROM Salesorder
+
+SELECT DISTINCT CITY FROM Salesorder
+
+----------COUNT(*)-------------------
+
+SELECT COUNT(*) FROM Salesorder
+
+----------- COUNT()
+
+SELECT COUNT(CATEGORY) FROM Salesorder
+
+
+--------------------------------------------- JOIN-----------------------------
+
+SELECT * FROM SYS.tables
+
+SELECT * FROM STUDENT
+SELECT * FROM RESULT 
+SELECT * FROM ACTIVITY
+
+-------------------------------------- INNER JOIN-----------------
+
+SELECT * FROM STUDENT INNER JOIN RESULT ON STUDENT.ID =  RESULT.ID
+
+
+--------------------------------------- LEFT JOIN -----------------
+
+SELECT * FROM STUDENT LEFT JOIN RESULT ON STUDENT.ID=RESULT.ID
+
+
+------------------------------------- RIGHT JOIN
+
+SELECT * FROM STUDENT RIGHT JOIN RESULT ON STUDENT.ID=RESULT.ID
+
+
+-------------------------------- FULL OUTER JOIN
+
+SELECT * FROM STUDENT FULL OUTER JOIN  RESULT ON STUDENT.ID=RESULT.ID
+
+----------------------------------- CROSS JOIN --
+
+SELECT * FROM STUDENT CROSS JOIN  RESULT
+
+-----------------------------------------------WHERE   
+
+SELECT * FROM STUDENT INNER JOIN RESULT ON STUDENT.ID =  RESULT.ID
+WHERE MARKS>25
+
+
+SELECT NAME FROM STUDENT LEFT JOIN RESULT ON STUDENT.ID=RESULT.ID
+WHERE MARKS IS NULL
+
+
+-------------------------JOIN - SELECTED 
+-------------- Coomon column name shoul be come with table name
+
+SELECT * FROM STUDENT FULL OUTER JOIN  RESULT ON STUDENT.ID=RESULT.ID
+
+SELECT NAME , MARKS FROM STUDENT FULL OUTER JOIN  RESULT ON STUDENT.ID=RESULT.ID
+
+
+SELECT STUDENT.ID, NAME , result.MARKS FROM STUDENT FULL OUTER JOIN  RESULT ON STUDENT.ID=RESULT.ID
+
+
+--------------------------------- Three tables
+
+
+SELECT * FROM STUDENT
+SELECT * FROM RESULT 
+SELECT * FROM ACTIVITY
+
+SELECT * FROM STUDENT
+INNER JOIN RESULT ON STUDENT.ID=RESULT.ID 
+INNER JOIN ACTIVITY ON STUDENT.ID = ACTIVITY.ID
+
+-------------------------------------------  
+
+
+SELECT * FROM STUDENT  S 
+INNER JOIN RESULT AS R ON S.ID=R.ID 
+INNER JOIN ACTIVITY  AS A ON S.ID = A.ID
+
+
+--------------------------------------------
