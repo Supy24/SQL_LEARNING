@@ -504,7 +504,7 @@ SELECT * FROM TABLE1 JOIN_NAME TABLE2 ON TABLE1.CCOLUMN = TABLE2.CCOLUMN
 
 --- RIGHT JOIN
 
-ALL Recored from right table table but only match records from elft table  on the base common column
+ALL Recored from right table table but only match records from left table  on the base common column
 
 
 --- full outer join
