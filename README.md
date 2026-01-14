@@ -444,3 +444,70 @@ Other Functions
 
 Text Functions
 ----------------- len , left , right, upper , lower , substring
+
+
+Functions
+-------------
+Text
+Math
+Date and Time Function
+others Function
+-------------
+
+Top , Round , Distinct , Count (*) ..............
+
+----------------------------------------Join---------------------------------
+
+-------- Fetch the records Single table
+-------- Fetch the related records from multiple tables - join 
+
+------ Join
+
+1- Must be a common column b/w tables
+2- Common column datatype should be same
+3- Number of column will incease
+4- It will perform horizontally
+
+
+----------
+ ANSI JOIN  -  ON 
+ NON -ANSI - WHERE
+------------
+
+--- Types
+
+---- INNER JOIN (BYDEFUALT)
+---- LEFT JOIN
+---- RIGHT JOIN
+---- FULL OUTER JOIN
+---- CROSS JOIN
+---- SELF JOIN 
+
+-------
+
+Syntax
+-----------
+
+
+SELECT * FROM TABLE1 JOIN_NAME TABLE2 ON TABLE1.CCOLUMN = TABLE2.CCOLUMN
+
+
+
+---------- INNER JOIN 
+
+------ Common reocrds from both table  on the base common column 
+
+-------- left join
+
+---- ALL Recored from left table table but only match records from right table  on the base common column
+
+
+--- RIGHT JOIN
+
+ALL Recored from right table table but only match records from elft table  on the base common column
+
+
+--- full outer join
+
+ALL records from all table but unmatch on both side show as null on the base common column
+
