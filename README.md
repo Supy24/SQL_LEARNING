@@ -529,3 +529,10 @@ ALL records from all table but unmatch on both side show as null on the base com
      as
             DQL Query   
 
+---------- SET OPERATORS
+
+  -1 - UNION--------- Unique
+  -2- UNION ALL----- Duplicate
+  -3- INTERSECT----- Common records only
+  -4- EXCEPT       ---- records form first query which is not secord query
+
