@@ -524,4 +524,8 @@ ALL records from all table but unmatch on both side show as null on the base com
   5- Do not allow order by
   6- Mus have name of every column 
 
+-----------
+     Create View Viwe_name
+     as
+            DQL Query   
 
