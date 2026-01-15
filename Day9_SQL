@@ -1,0 +1,112 @@
+--------------join
+---- inner , left , right , fullouter , cross join............
+---- self join
+
+--------------- FIND THE WITH SAME SALARY
+---------------- SINGLE TABLE JOIN WITH SAME
+
+SELECT * FROM SALARYDETAILS
+
+SELECT  S1.NAME,  S2.NAME FROM SALARYDETAILS AS S1 
+INNER JOIN SALARYDETAILS  AS S2  ON S1.SALARY=S2.SALARY AND S1.ID > S2.ID
+
+
+------------------ ANSI - SELF JOIN
+
+SELECT  S1.NAME,  S2.NAME , S1.CITY FROM SALARYDETAILS AS S1 
+INNER JOIN SALARYDETAILS  AS S2  ON S1.CITY=S2.CITY AND S1.ID > S2.ID
+
+
+
+--------------------------------------NON ANSI - SELF JOIN 
+
+SELECT S1.NAME,  S2.NAME , S1.CITY FROM SALARYDETAILS AS S1 ,SALARYDETAILS AS S2
+WHERE S1.CITY=S2.CITY AND S1.ID > S2.ID
+
+
+
+
+------------------------- VIEW-----------------------------------------
+SELECT * FROM SALARYDETAILS
+
+Create View SAME_CITY
+AS
+SELECT S1.NAME AS N1,  S2.NAME AS N2 , S1.CITY AS C1, S1.SALARY AS S3 FROM SALARYDETAILS AS S1 ,SALARYDETAILS AS S2
+WHERE S1.CITY=S2.CITY AND S1.ID > S2.ID
+
+--------------
+
+SELECT * FROM SAME_CITY
+
+
+
+--------
+ALTER View SAME_CITY
+AS
+SELECT S1.NAME AS NAME1,  S2.NAME AS NAME2 , S1.CITY AS C1, S1.SALARY AS S3 FROM SALARYDETAILS AS S1 ,SALARYDETAILS AS S2
+WHERE S1.CITY=S2.CITY AND S1.ID > S2.ID
+
+
+-----------------
+
+SELECT NAME1,C1 FROM SAME_CITY
+WHERE C1='SECTOR-15'
+
+
+------------------------------VIEW FOR SALES SUMMARY
+
+Create View Sales_Summary
+as
+SELECT SEGMENT , REGION , SUM(SALES) AS TOTAL FROM Salesorder
+GROUP BY SEGMENT , REGION 
+HAVING  SUM(SALES)>74255.0015
+
+
+SELECT * FROM Sales_Summary
+WHERE REGION ='EAST'
+ORDER BY Segment DESC
+
+----------------------------------- SET OPERATORS
+
+select e_id, e_name from EMPLOYEE_DETAILS
+
+union
+
+select EmployeeID, name from [dbo].[Employee_Manager$]
+
+union
+
+select EmployeeID, name from [dbo].[Employee_Manager$]
+--------------
+
+select e_id from EMPLOYEE_DETAILS
+
+union
+
+select EmployeeID from [dbo].[Employee_Manager$]
+
+
+--------------------------- union all
+
+select e_id from EMPLOYEE_DETAILS
+
+union all
+
+select EmployeeID from [dbo].[Employee_Manager$]
+
+
+-----------------intersect------------
+
+select e_id from EMPLOYEE_DETAILS
+
+intersect
+
+select EmployeeID from [dbo].[Employee_Manager$]
+
+------------------
+
+select EmployeeID from [dbo].[Employee_Manager$]
+
+except 
+
+select e_id from EMPLOYEE_DETAILS
