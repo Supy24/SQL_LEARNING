@@ -1,124 +1,104 @@
-# SQL_LEARNING
-Here, I will be posting my everyday learning of SQL Concepts
+SQL Learning Notes
 
-Day1_SQL
+Topic: SQL Fundamentals & Database Basics
 
-Structured Query Language (SQL)
-------------------------------------------
+🔹 What is SQL?
 
+SQL (Structured Query Language) is a standard programming language used to:
 
-What is SQL?
-----------
+Communicate with a database server
 
-SQL (Structured Query Language) is a programming language
+Store data
 
-Used to communicate with a database server
+Retrieve data
 
-Helps in storing, retrieving, updating, and managing data
+Update records
 
-What is a SQL Server?
-----------------
+Manage and control databases
 
-A server is a machine (device) with:
+SQL is the backbone of data storage and analysis in most business systems.
 
-Large memory
+🔹 What is a SQL Server?
 
-High processing power
+A server is a high-performance machine that is:
 
 Always ON
 
-Used to store and manage databases
+Equipped with large memory
 
-Popular Database Servers
------------------------------
-No	Database Server	License
-1	MySQL	Free
-2	Oracle	Paid
-3	IBM DB2	Paid
-4	MS SQL Server	Free Trial (180 days)
+Designed for high processing power
 
-------------------------- INSTALL
+Used to store, manage, and secure databases
 
+🔹 Popular Database Servers
+Database Server	License
+MySQL	Free
+Oracle	Paid
+IBM DB2	Paid
+MS SQL Server	Free Trial (180 days)
+🔹 Microsoft SQL Server Components
 
-SQL Server (Microsoft)
+SQL Server → Database Engine (stores & manages data)
 
-SQL Server: Database engine
+SSMS (SQL Server Management Studio) → Tool to write and execute queries
 
-SSMS (SQL Server Management Studio): Tool to write & execute queries
+Downloads:
 
+SQL Server
 
-🔗 SQL Server Download
-https://www.microsoft.com/en-in/sql-server/sql-server-downloads
+SSMS
 
-🔗 SSMS Download
-https://learn.microsoft.com/en-us/ssms/install/install
-
-
-------------------------------------------
-
-Default System Databases in SQL Server
+🔹 Default System Databases in SQL Server
 Database	Purpose
 master	Server-level configuration
 model	Template for new databases
 msdb	Jobs, schedules, backups
 tempdb	Temporary objects & operations
+🔹 Why SQL Server?
 
--------------------------------------------
+Handles large volumes of data
 
-Why SQL Server?
---------------------------
-1-Handles large data
+Supports continuous data entry
 
-2-Supports new records continuously
+Allows multitasking
 
-3- Multitasking support
+Supports multiple users simultaneously
 
-4-Multiple users at the same time
+High security
 
-5-High security
+Based on RDBMS (Relational Database Management System)
 
-6-Supports RDBMS (Relational Database Management System)
+🔹 SQL Structure Hierarchy
 
---------------------------------------
+SERVER
+└── DATABASE
+    └── TABLE
+        └── ROWS & COLUMNS
+            └── RECORDS
 
-SQL Subsets
+🔹 SQL Comments & Case Sensitivity
+
+Single line comment:
+-- This is a comment
+
+SQL keywords are not case-sensitive
+
+Data may be case-sensitive depending on collation
+
+🔶 SQL Subsets (Command Categories)
 Type	Full Form	Purpose
 DQL	Data Query Language	Fetch data
 DDL	Data Definition Language	Structure
 DML	Data Manipulation Language	Data handling
 DCL	Data Control Language	Permissions
 TCL	Transaction Control Language	Transactions
-
-------------------------------------------------------------
-SQL Structure Hierarchy
-SERVER
-   └── DATABASE
-         └── TABLE
-               └── ROWS & COLUMNS
-                     └── RECORDS
--------------------------------------
-
-SQL Comments
-
-Single-line comment:
-
--- This is a comment
-
-Case Sensitivity
-
-SQL keywords are NOT case-sensitive
-
-Data may be case-sensitive depending on collation
-
------------------------------------------------------
-
-DDL – Data Definition Language
+🔶 DDL – Data Definition Language
 
 Scope: Structure level
 
-Used to define or modify database objects
+Used to define or modify database objects.
 
-DDL Commands
+Common DDL Commands:
 
 CREATE
 
@@ -127,8 +107,6 @@ ALTER
 DROP
 
 TRUNCATE
-
-CREATE Command
 
 Used to create:
 
@@ -142,397 +120,220 @@ FUNCTION
 
 TRIGGER
 
--------------------------------
+🔹 CREATE DATABASE
+CREATE DATABASE JAN_BATCH9;
 
-CREATE DATABASE
-
-CREATE DATABASE DB_NAME;
-
-------
-
-CREATE TABLE Syntax
-
-CREATE TABLE TABLE_NAME
-(
-   COL1 DATATYPE(LENGTH) CONSTRAINTS,
-   COL2 DATATYPE(LENGTH) CONSTRAINTS,
-   COL3 DATATYPE(LENGTH) CONSTRAINTS,
-   COL4 DATATYPE(LENGTH) CONSTRAINTS,
-   COL5 DATATYPE(LENGTH) CONSTRAINTS
+🔹 CREATE TABLE
+CREATE TABLE STUDENT_DETAILS (
+ID INT,
+NAME VARCHAR(30),
+COLLEGE VARCHAR(20),
+CITY VARCHAR(20),
+PINCODE CHAR(6),
+MOBILE CHAR(10),
+FEE MONEY,
+ADDATA DATE
 );
 
-SQL Server Data Types
----------------------------------
 
-Numeric Data Types
-Type	Description	Size
-TINYINT	Whole number	     1 byte
-INT	Whole number	     4 bytes
-BIGINT	Large whole numbe     8 bytes
-FLOAT	Decimal number	    8 bytes
-MONEY	Currency	                   8 bytes
+Check table structure:
+
+SP_HELP STUDENT_DETAILS;
+
+🔶 SQL Server Data Types
+Numeric
+
+TINYINT – 1 byte
+
+INT – 4 bytes
+
+BIGINT – 8 bytes
+
+FLOAT – Decimal
+
+MONEY – Currency
+
 Date & Time
-Type	Description	Size
-DATE	Date only	3 bytes
-Character Data Types
-Type	Description
-CHAR(n)	Fixed-length characters
-VARCHAR(n)	Variable-length characters
-NCHAR(n)	Unicode fixed-length
-NVARCHAR(n)	Unicode variable-length
 
-----------------------------
+DATE – Date only
 
--------------- CREATE DATABASE
+Character
 
-CREATE DATABASE JAN_BATCH9
+CHAR(n) – Fixed length
 
----- TO SELECT DATABASE
-USE JAN_BATCH9
+VARCHAR(n) – Variable length
 
-----------------CREATE TABLE
+NCHAR(n) – Unicode fixed
 
-CREATE TABLE STUDENT_DETAILS
-( ID INT,
-  NAME VARCHAR(30),
-  COLLEGE VARCHAR(20),
-  CITY VARCHAR(20),
-  PINCODE CHAR(6),
-  MOBILE CHAR(10),
-  FEE MONEY,
-  ADDATA  DATE
-  )
+NVARCHAR(n) – Unicode variable
 
-  --------TO SHOW TABLE DEFINIITION 
+🔶 DML – Data Manipulation Language
 
-  SP_HELP STUDENT_DETAILS
+Scope: Data level
 
-  --------- INSERT
+Commands:
 
-  INSERT INTO STUDENT_DETAILS (ID,NAME,COLLEGE,CITY,PINCODE,MOBILE,FEE,ADDATA) VALUES(1,'RAM','DU','NOIDA','123456','1234567890',35000,'01-05-2026')
+INSERT
 
+UPDATE
 
-  -----------SELECT
+DELETE
 
-  SELECT * FROM STUDENT_DETAILS
+INSERT Example
+INSERT INTO STUDENT_DETAILS 
+VALUES (1,'RAM','DU','NOIDA','123456','1234567890',35000,'01-05-2026');
 
+DELETE
+DELETE FROM TABLE_NAME WHERE condition;
 
---- 
+UPDATE
+UPDATE TABLE_NAME SET column = value WHERE condition;
 
-DDL - CREATE , ALTER , DROP , TRUNCATE
 
+⚠️ DELETE and UPDATE should always be used with WHERE condition.
 
-DATABASE
---- TABLE
-----Constraints
----- RDBMS
+🔶 TCL – Transaction Control Language
 
------ALTER - Modify structure 
+Scope: Transaction control (works with DML)
 
------ ADD
------ ALTER
------ Drop
+BEGIN TRANSACTION
 
------ Add Column 
------ Change Data type 
------ Drop - Database , Table , Column , Constraints
+COMMIT → Save permanently
 
+ROLLBACK → Undo last transaction
 
-ALTER TABLE TABLE_NAME
-ADD COLUMN_DETAILS
+SAVEPOINT → Partial rollback
 
-DDL
-------------------- Level - Structure 
-CREATE 
-ALTER
-DROP
-TRUNCATE
+🔶 DQL – Data Query Language
 
-------
+Scope: Fetch & analyze data (most used – ~90%)
 
-DML - Data Manipulation Language
-------------------------------------------
-                   --------------------------- Scope or Level - Data
-                   --------------------------- Transaction
+Key clauses:
 
-INSERT - INSERT RECORDS INTO TABLE
-DELETE - DELETE RECORDS FROM TABLE
-UPDATE - MODIFY RECORDS
-------------------------------------------
+SELECT
 
-INSERT - INSERT RECORDS INTO TABLE
+FROM
 
-1- Insert records into all columns and order as mention in table no need to mention column name  
+WHERE
 
-2- Insert records in selected columns --- Needed to mention column 
+GROUP BY
 
-3- Insert Multiple records
+HAVING
 
-4- Insert records as colum order in insert query
+ORDER BY
 
+Example structure:
 
----DELETE - DELETE RECORDS FROM TABLE
------------- ALWAYS COME WITH CONDITION 
+SELECT columns  
+FROM table  
+WHERE condition  
+GROUP BY column  
+HAVING condition  
+ORDER BY column;
 
-DELETE FROM  TABLE_NAME
-WHERE CONDITION 
+🔶 WHERE Clause & Operators
+Comparison:
 
+> < >= <= = <> BETWEEN
 
--------UPDATE
+Logical:
 
-UPDATE TABLE_NAME
-SET COLUMN = VALUE
-WHERE  CONDITION 
+AND, OR, NOT
 
------------------------------------- TCL-- Transaction Control Language
+List:
 
-Transaction Command - Auto-commit 
-                - System commit
-                
+IN
 
-Begin Transaction - change Auto-commit   into  User Commit
-Roll Back             - Cancel Last transation 
-Save Point           - Roll back conditionaly
-Commit               - Paramenet Last Transaction
+NULL:
 
+IS NULL, IS NOT NULL
 
-TCL- Transaction Control Language
--------------------------------------- Scope - Transaction Control
-                                                                - DML( Insert , DELETE , UPDATE)
+Pattern:
 
+LIKE
 
------ QUERY - System Commit- Paranament 
-                   - User Control - Begin Transaction 
+Examples:
 
-Rollback - Cancel last Transaction
-Save Point - Cancel Conditionaly 
-Commit ----
+Starts with: 'cha%'
 
+Ends with: '%cha'
 
-DQL- Data Query Language
----------------------------------
---------------------------------- Scope or Level - Query or Fetch Records
---------------------------------- Select
---------------------------------- Data Analysis - 90%
+Anywhere: '%cha%'
 
+🔶 Functions
+Text:
 
-Select         - Execute the Query
-From          - Fetch records from Table    
-Where        - Fetch records from Table with Condition 
-Group By   - Group on the base of nay column or Summary
-Having       - Conditon on the Summary Records
-Order by    - Sorting ( Asc or Desc)
+LEN, LEFT, RIGHT, UPPER, LOWER, SUBSTRING
 
+Aggregate:
 
----------------From          - Fetch records from Table    
+SUM, MIN, MAX, COUNT, DISTINCT
 
-Rules-1 Fetch all(*) records 
+Other:
 
-     SELECT *(ALL) FROM TABLE_NAME
+TOP, ROUND
 
------2- SELECT COLUMN REECORDS
- 
+🔶 JOINS – Combining Multiple Tables
 
-SELECT COL1,COL2,COL3 FROM TABLE_NAME
+Used to fetch related data from more than one table.
 
----- Multiple Words column name 
+Conditions:
 
+Common column must exist
 
-SELECT [COL1 name],[COL2 name],COL3 FROM TABLE_NAME
+Data type must be same
 
+Columns increase horizontally
 
-----column name  as name
+Types of Joins:
 
+INNER JOIN
 
-SELECT [COL1 name] as name ,[COL2 name],COL3  as name FROM TABLE_NAME
+LEFT JOIN
 
+RIGHT JOIN
 
--------------- SELECT , FROM , WHERE (FILTER)
+FULL OUTER JOIN
 
----- WHERE - Fetch the conditionally
+CROSS JOIN
 
-SELECT * FROM TABLE WHERE COLUMN OPERATOR VALUE
+SELF JOIN
 
+Syntax:
 
--------------- Group By - Summary
-                                   - Base column
-                                   - Values
-                                   - Agg Function - Sum , min , max,
+SELECT *
+FROM TABLE1
+JOIN TABLE2
+ON TABLE1.column = TABLE2.column;
 
-DQL
--------- Data Query Language
--------- Query or Fetch
--------- Select
+🔶 VIEW
 
-------------- Fetch the records from table
--------------- SELECT , FROM , WHERE, GROUP BY , HAVING , ORDER BY 
-Select * from Table_name
+A virtual table created from complex SELECT queries.
 
-Select * from Table_name where Condition
+Advantages:
 
-Select * from Table_name group by Column 
+Simplifies queries
 
-Select * from Table_name group by Column  having condition 
+Reusability
 
+Security
 
-Select * from Table_name group by Column  having condition  order by colunm
+No physical data storage
 
+Rules:
 
--------------------
+Based only on DQL
 
+No ORDER BY
 
-WHERE CLAUSE
--------------------- 
-------------------- Fetch the records conditionally
--------------------  Data type
--------------------  Operators
+Each column must have a name
 
-Operators
--------------
-1- Comparion Operators
-2- Logical Operators
-3- Null Operators
-4- Range Operators
-5- Pattern Operators
+🔶 SET OPERATORS
 
----------------------------------
+UNION → Unique records
 
-1- Comparion Operators - > , < , >= , <= , <>  or =! , Between... and 
-   ---text(char, varchar) ---= ,<>  or =!
-   --- number -- > , < , >= , <= , <>  or =! , Between... and 
-   --- date  --- > , < , >= , <= , <>  or =! , Between... and 
+UNION ALL → Duplicates allowed
 
+INTERSECT → Common records
 
-----------------------------------
-
-2- Logical Operators
-------------------------- Multiple Conditions
-logical and --  all True
-logical or    --  any True
-logical not   -- True for False , false for True
-
---- List Operatos - in
-
----- Null Operators - is
-
----- Pattern Operators or WildCard- like 
-
------ In Begining 
-
-where column like 'chac%' 
-
----- End with
-
-where column like '%cha' 
-
----In middle  (any where) 
-
-where column like '%cha%' 
-
-
-where column like '%__cha___%'
-
-Functions
---------------
-
-Text Functions
-Math Function (agg functions)
-Date Functions
-Other Functions
-
---------------------------
-
-Text Functions
------------------ len , left , right, upper , lower , substring
-
-
-Functions
--------------
-Text
-Math
-Date and Time Function
-others Function
--------------
-
-Top , Round , Distinct , Count (*) ..............
-
-----------------------------------------Join---------------------------------
-
--------- Fetch the records Single table
--------- Fetch the related records from multiple tables - join 
-
------- Join
-
-1- Must be a common column b/w tables
-2- Common column datatype should be same
-3- Number of column will incease
-4- It will perform horizontally
-
-
-----------
- ANSI JOIN  -  ON 
- NON -ANSI - WHERE
-------------
-
---- Types
-
----- INNER JOIN (BYDEFUALT)
----- LEFT JOIN
----- RIGHT JOIN
----- FULL OUTER JOIN
----- CROSS JOIN
----- SELF JOIN 
-
--------
-
-Syntax
------------
-
-
-SELECT * FROM TABLE1 JOIN_NAME TABLE2 ON TABLE1.CCOLUMN = TABLE2.CCOLUMN
-
-
-
----------- INNER JOIN 
-
------- Common reocrds from both table  on the base common column 
-
--------- left join
-
----- ALL Recored from left table table but only match records from right table  on the base common column
-
-
---- RIGHT JOIN
-
-ALL Recored from right table table but only match records from left table  on the base common column
-
-
---- full outer join
-
-ALL records from all table but unmatch on both side show as null on the base common column
-
-
- VIEW 
- ----------------
-                ----- Virtual Table come from Complex DQL Query , it do not save  data physically.
-
-
-  1- Simply the Query
-  2- Reuseability
-  3- Security
-  4- DQL
-  5- Do not allow order by
-  6- Mus have name of every column 
-
------------
-     Create View Viwe_name
-     as
-            DQL Query   
-
----------- SET OPERATORS
-
-  -1 - UNION--------- Unique
-  -2- UNION ALL----- Duplicate
-  -3- INTERSECT----- Common records only
-  -4- EXCEPT       ---- records form first query which is not secord query
-
+EXCEPT → Records in first query but not second
