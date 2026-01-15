@@ -511,3 +511,17 @@ ALL Recored from right table table but only match records from left table  on th
 
 ALL records from all table but unmatch on both side show as null on the base common column
 
+
+ VIEW 
+ ----------------
+                ----- Virtual Table come from Complex DQL Query , it do not save  data physically.
+
+
+  1- Simply the Query
+  2- Reuseability
+  3- Security
+  4- DQL
+  5- Do not allow order by
+  6- Mus have name of every column 
+
+
